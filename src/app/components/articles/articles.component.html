@@ -1,0 +1,24 @@
+<!-- <app-update-article
+  (onUpdateArticle)="updateArticle($event)"
+></app-update-article> -->
+<div class="page" *ngIf="status">
+  <header><h2>Mes articles</h2></header>
+  <section>
+    <app-article-item *ngFor="let article of articles" [article]="article">
+    </app-article-item>
+  </section>
+
+  <div class="footer">
+    <div class="previous">
+      <button *ngIf="previous != 0" (click)="getPreviousArticles()">
+        Précédent
+      </button>
+    </div>
+    <div class="previous">
+      <button (click)="getNextArticles()">Suivant</button>
+    </div>
+  </div>
+</div>
+<div class="error" *ngIf="!status">
+  {{ error }}
+</div>

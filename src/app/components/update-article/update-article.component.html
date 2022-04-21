@@ -1,0 +1,40 @@
+<div class="page">
+  <form class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="text">Titre</label>
+      <textarea
+        class="form-input"
+        type="text"
+        name="title"
+        [(ngModel)]="title"
+        id="title"
+        cols="100"
+        rows="10"
+      ></textarea>
+    </div>
+
+    <div class="form-control">
+      <label for="text">Extrait</label>
+      <textarea
+        type="text"
+        name="text"
+        [(ngModel)]="extrait"
+        id="extrait"
+        cols="50"
+        rows="10"
+      ></textarea>
+    </div>
+
+    <input type="submit" value="Modifier l'article" class="btn btn-block" />
+  </form>
+
+  <div>
+    <div>
+      <p>Votre article a été bien modifié</p>
+      <a routerLink="/detail/{{ id }}">Voir les détail</a>
+    </div>
+    <div>
+      <a routerLink="/">Voir la liste des articles</a>
+    </div>
+  </div>
+</div>
