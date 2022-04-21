@@ -1,5 +1,8 @@
 <article class="article-item">
   <img src="{{ article.img }}" alt="" />
-  <p>{{ article.title }}</p>
+  <h2>{{ article.title }}</h2>
   <p>{{ article.extrait }}</p>
+  <div>
+    <a routerLink="update/{{ article.id }}">Modifier l'article</a>
+  </div>
 </article>

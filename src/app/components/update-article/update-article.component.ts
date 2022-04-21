@@ -27,9 +27,7 @@ export class UpdateArticleComponent implements OnInit {
         if (data.status === 'success') {
           this.extrait = data.article.extrait;
           this.title = data.article.title;
-          this.status = true;
         } else {
-          this.status = false;
           this.error = data.message;
         }
       });
@@ -50,19 +48,30 @@ export class UpdateArticleComponent implements OnInit {
     console.log(this.extrait);
     let newArticle = {
       extrait: this.extrait,
-      tittle: this.title,
+      title: this.title,
       id: this.id,
     };
 
+    var data = new FormData();
+    data.append('json', JSON.stringify(newArticle));
     fetch('http://localhost:8000/updateArticle.php', {
       method: 'POST',
-      body: JSON.stringify(newArticle),
+      body: data,
     })
       .then(function (response) {
         return response.json();
       })
-      .then(function (data) {
+      .then((data) => {
         console.log(data);
-      });
+        if (data.status === 'success') {
+          this.extrait = data.article.extrait;
+          this.title = data.article.title;
+          this.status = true;
+        } else {
+          this.error = data.message;
+          this.status = false;
+        }
+      })
+      .catch((data) => console.log(data));
   }
 }

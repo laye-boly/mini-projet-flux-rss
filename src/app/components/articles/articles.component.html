@@ -2,7 +2,7 @@
   (onUpdateArticle)="updateArticle($event)"
 ></app-update-article> -->
 <div class="page" *ngIf="status">
-  <header><h2>Mes articles</h2></header>
+  <header><h1>Mes articles</h1></header>
   <section>
     <app-article-item *ngFor="let article of articles" [article]="article">
     </app-article-item>

@@ -29,7 +29,7 @@
   </form>
 
   <div>
-    <div>
+    <div *ngIf="status">
       <p>Votre article a été bien modifié</p>
       <a routerLink="/detail/{{ id }}">Voir les détail</a>
     </div>

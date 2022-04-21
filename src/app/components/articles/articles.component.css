@@ -5,18 +5,22 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: red;
   align-items: center;
 }
 
+.page {
+  border: 1px solid lightgrey;
+  position: relative;
+  z-index: 10;
+  border-radius: 15px;
+}
+
 section {
-  background-color: aqua;
   /* width: 100%; */
   margin-bottom: 20px;
 }
 
 .footer {
-  background: yellow;
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
