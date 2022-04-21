@@ -4,7 +4,7 @@ $fichier = 'https://www.lemonde.fr/rss/en_continu.xml';
 $dom = new DOMDocument();
 $articles = [];
 if (!$dom->load($fichier)) {
-    echo json_encode(['status' => 'impossible de récuprer les articles, réessayez plus tard']);
+    echo 'impossible de récuprer les articles, réessayez plus tard';
     die;
 }
 
@@ -21,6 +21,7 @@ try {
     
 } catch (PDOException $e) {
 	echo $e->getMessage();
+    die();
 }
 
 foreach ($itemList as $item) {
@@ -29,7 +30,7 @@ foreach ($itemList as $item) {
     $titre = $item->getElementsByTagName('title');
     if ($titre->length > 0) {
         $article['title'] = $titre->item(0)->nodeValue;
-        echo $article["title"];
+        
     } 
     
     $desc = $item->getElementsByTagName('description');
@@ -52,12 +53,10 @@ foreach ($itemList as $item) {
     $statement = $pdo->prepare($sql);
     $statement->execute([$article['title'], $article['extrait'], $article['image']]);
     
-    $articles['articles'] = $article;
+   
     
 }
 
 
-$articles['status'] = 'success';
-
-echo json_encode($articles);
+echo 'Les articles ont été bien enregistrés dans la base de données';
 

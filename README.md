@@ -1,16 +1,16 @@
 # MiniProjetFluxRss
 
-Ce proposé mini projet est proposé dans le cadre de ma candidature à la formation de fullstack engineer offerte par EDACY
+Ce mini projet est proposé dans le cadre de ma candidature à la formation de fullstack engineer offerte par EDACY
 
 Il s'agit ici de lire un flux rss (des articles de presse) disponible à l'adresse `https://www.lemonde.fr/rss/en_continu.xml`. L'objectif est de récupérer, pour chaque article, son titre, son extrait, son image d'illustration.
 
-On doit stocké les données reçus dans une base de données pour pouvoiir les modifier ultérieurement
+On doit stocké les données reçus dans une base de données pour pouvoir les modifier ultérieurement
 
 # Le Backend
 
 Dans ce projet, j'ai utilisé le langage PHP pour le backend et le serveur MySQL pour la base de données
 
-Le script server/loadDatabase.php est celui qui récupère le flux rss et le charge articles dans la base de données news au niveau de la table article
+Le script server/loadDatabase.php est celui qui récupère le flux rss et charge articles dans la base de données news au niveau de la table article
 
 La table article a les champs suivants : id (La clé primaire de type INTEGER), title(son titre de type MEDIUMTEXT), extrait(son extrait de type MEDIUMTEXT) et img (l'url de son image d'illustration en VARCHAR)
 
