@@ -10,12 +10,16 @@
 
   <div class="footer">
     <div class="previous">
-      <button *ngIf="previous != 0" (click)="getPreviousArticles()">
+      <button
+        *ngIf="previous != 0"
+        (click)="getPreviousArticles()"
+        class="button"
+      >
         Précédent
       </button>
     </div>
     <div class="previous">
-      <button (click)="getNextArticles()">Suivant</button>
+      <button (click)="getNextArticles()" class="button">Suivant</button>
     </div>
   </div>
 </div>

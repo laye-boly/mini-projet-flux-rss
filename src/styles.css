@@ -1,5 +1,8 @@
+.body {
+  font-size: 20px;
+}
 .page {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -10,6 +13,8 @@
   position: relative;
   z-index: 10;
   border-radius: 15px;
+  background: #cccccc;
+  font-size: 20px;
 }
 
 .form-input {
@@ -23,4 +28,53 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
+}
+.error,
+.success,
+.to-article {
+  height: 80px;
+  border-radius: 15px;
+  width: 70%;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.error {
+  background-color: #960000;
+}
+.success {
+  background-color: #006600;
+  justify-content: space-around;
+}
+.link {
+  color: white;
+  /* font-size: 20px; */
+}
+
+.to-article {
+  text-align: center;
+  background-color: #e0e0e0;
+}
+.form-control {
+  display: flex;
+  justify-content: space-around;
+}
+label {
+  align-self: center;
+}
+input[type="submit"] {
+  margin-top: 20px;
+}
+.button {
+  font-size: 20px;
+  border: 5px;
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
 }

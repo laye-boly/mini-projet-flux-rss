@@ -1,20 +1,3 @@
-.page,
-section {
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.page {
-  border: 1px solid lightgrey;
-  position: relative;
-  z-index: 10;
-  border-radius: 15px;
-}
-
 section {
   /* width: 100%; */
   margin-bottom: 20px;

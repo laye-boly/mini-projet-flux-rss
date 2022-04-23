@@ -11,14 +11,13 @@ export class UpdateArticleComponent implements OnInit {
   extrait: any;
   title: any;
   id: any;
-  status: Boolean = false;
+  status: string = '';
   error: any;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
     fetch('http://localhost:8000/getArticle.php?id=' + this.id)
       .then(function (response) {
         return response.json();
@@ -44,15 +43,6 @@ export class UpdateArticleComponent implements OnInit {
       alert('Ce champ est obligatoire');
       return;
     }
-    console.log(this.id);
-    console.log(this.title);
-    console.log(this.extrait);
-
-    let newArticle = {
-      extrait: this.extrait,
-      title: this.title,
-      id: this.id,
-    };
 
     var data = new FormData();
     data.append('title', this.title);
@@ -68,14 +58,19 @@ export class UpdateArticleComponent implements OnInit {
       .then((data) => {
         console.log(data);
         if (data.status === 'success') {
-          this.extrait = data.article.extrait;
-          this.title = data.article.title;
-          this.status = true;
+          this.extrait = data.extrait;
+          this.title = data.title;
+          this.id = data.id;
+          this.status = 'success';
         } else {
           this.error = data.message;
-          this.status = false;
+          this.status = 'error';
         }
       })
-      .catch((data) => console.log(data));
+      .catch((data) => {
+        console.log(data);
+        this.error = data.message;
+        this.status = 'error';
+      });
   }
 }
