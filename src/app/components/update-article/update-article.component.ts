@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-update-article',
@@ -13,7 +14,7 @@ export class UpdateArticleComponent implements OnInit {
   status: Boolean = false;
   error: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -46,6 +47,7 @@ export class UpdateArticleComponent implements OnInit {
     console.log(this.id);
     console.log(this.title);
     console.log(this.extrait);
+
     let newArticle = {
       extrait: this.extrait,
       title: this.title,
@@ -53,7 +55,9 @@ export class UpdateArticleComponent implements OnInit {
     };
 
     var data = new FormData();
-    data.append('json', JSON.stringify(newArticle));
+    data.append('title', this.title);
+    data.append('extrait', this.extrait);
+    data.append('id', this.id);
     fetch('http://localhost:8000/updateArticle.php', {
       method: 'POST',
       body: data,

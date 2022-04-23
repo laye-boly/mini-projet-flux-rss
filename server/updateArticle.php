@@ -1,14 +1,26 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
-$title = '';
-$extrait = '';
-$id = 0;
+header('Access-Control-Allow-Headers: Content-Type');
+// $title = '';
+// $extrait = '';
+// $id = 0;
+$title = $_POST['title'];
+$extrait = $_POST['extrait'];
+$id = $_POST['id'];
+
+echo json_encode([
+    'id' => $id,
+    'title' => $title,
+    'extrait' => $extrait
+]);
+die();
+
 
 if (filter_has_var(INPUT_POST, 'title')) {
 
-	// $title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $title = $_POST['title'];
+	$title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    // $title = $_POST['title'];
     
 	
 }
