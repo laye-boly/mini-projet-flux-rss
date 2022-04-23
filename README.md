@@ -16,7 +16,7 @@ La table article a les champs suivants : id (La clé primaire de type INTEGER), 
 
 Pour démarrer le serveur PHP, il faut se deplacer au niveau du terminal dans le dossier serveur et lancer la commande `php -S localhost:8000`
 
-Ensuite se rendre à http://localhost:8000/loadDatabase.php. Ainsi les articles sont récupérés et chargés dans MySQL. On doit appeler cette page une seule fois, sinon il récupéreras les mêmes articles et les ajouteras dans MySQL
+Ensuite se rendre à `http://localhost:8000/loadDatabase.php`. Ainsi les articles sont récupérés et chargés dans MySQL. On doit appeler cette page une seule fois, sinon il récupéreras les mêmes articles et les ajouteras dans MySQL
 
 # Le Frontend
 
@@ -26,3 +26,9 @@ Pour démarrer le client angular, il fautt se placer à la racine du projet et l
 Pour afficher les 5 articles qui suivent, il faut appuyer sur le button `Suivant` et pour revenir sur les 5 précédents, appuyer sur le button `Précédent`
 
 On peut aussi modifier chaque article en appuyant sur le button modiffier qui lui correspond
+
+# Video de démonstration du projet
+
+J'ai fait une capture d'écran et audio démontrant les fonctionnalité du projet
+
+On peut y avoir accèss en cliquant sur ce lien : `https://drive.google.com/drive/folders/1nF8lw29FqSmpfywGSQxdLR3RwHo4wPLG`
