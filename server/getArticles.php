@@ -18,7 +18,9 @@ try {
 	$pdo = new PDO($dsn, $user, $password);
     
 } catch (PDOException $e) {
-	echo $e->getMessage();
+    echo json_encode(['status' => "error", 'message' => $e->getMessage()]);
+    
+    die();
 }
 const PER_PAGE = 5;
 
@@ -31,38 +33,47 @@ if($page > 1 ) {
     $number_of_rows = $result->fetchColumn(); 
 
     if($start > $number_of_rows){
-        echo json_encode(['satus' => "error", 'message' => "cet pas n'existe pas"]);
-        die;
+        echo json_encode(['status' => "error", 'message' => "cette page n'existe pas"]);
+        die();
     }
     
 }
 
 if($page == 0){
-    echo json_encode(['satus' => "error", 'message' => "cet pas n'existe pas"]);
+    echo json_encode(['status' => "error", 'message' => "cet page n'existe pas"]);
     
-    die;
+    die();
 }
 
 
 
-$sql = "SELECT * FROM article LIMIT ".PER_PAGE." OFFSET ".$start; 
-$result = $pdo->query($sql);
-$articles = [];
-$articles['articles'] = [];
-while (($row = $result->fetch()) !== false) {
-    $article = [];
-    $article ['id'] = $row['id'];
-    $article ['title'] = $row['title'];
-    $article ['extrait'] = $row['extrait'];
-    $article ['img'] = $row['img'];
-    $articles['articles'][]= $article;
+try {
+    $sql = "SELECT * FROM article LIMIT ".PER_PAGE." OFFSET ".$start; 
+    $result = $pdo->query($sql);
+    $articles = [];
+    $articles['articles'] = [];
+    while (($row = $result->fetch()) !== false) {
+        $article = [];
+        $article ['id'] = $row['id'];
+        $article ['title'] = $row['title'];
+        $article ['extrait'] = $row['extrait'];
+        $article ['img'] = $row['img'];
+        $articles['articles'][]= $article;
+    }
+    $articles['status'] = 'success';
+    $articles['message'] = 'opération réussi';
+    echo json_encode($articles);
+    die();
+}catch(PDOException $e){
+	echo json_encode(['status' => 'erreur', 'message' => $e->getMessage()]);
+    die();
+
 }
 
 
 
 
-$articles['status'] = 'success';
-$articles['message'] = 'opération réussi';
 
-echo json_encode($articles);
+
+
 

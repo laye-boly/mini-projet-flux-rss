@@ -5,12 +5,7 @@ header('Access-Control-Allow-Origin: *');
 $title = '';
 $extrait = '';
 $id = 0;
-// echo json_encode([
-//     'status' => 'erreur',
-//     'message' => "le titre ou l'extrait ou l'id n'est pas correct"
-// ]);
 
-// die();
 if (filter_has_var(INPUT_POST, 'title')) {
 
 	$title = filter_var($_POST['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);

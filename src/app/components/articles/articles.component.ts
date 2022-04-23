@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles.component.css'],
 })
 export class ArticlesComponent implements OnInit {
-  articles: any;
+  articles: any[] = [];
   previous: number = 0;
   next: number = 2;
-  status: Boolean = true;
+  status: string = '';
   error: any;
 
   constructor() {}
@@ -42,8 +42,9 @@ export class ArticlesComponent implements OnInit {
         console.log(data);
         if (data.status === 'success') {
           this.articles = data.articles;
+          this.status = 'success';
         } else {
-          this.status = false;
+          this.status = 'error';
           this.error = data.message;
         }
       });

@@ -78,3 +78,8 @@ input[type="submit"] {
   height: 100px;
   border-radius: 20px;
 }
+
+.info {
+  margin-top: 10px;
+  color: #006600;
+}

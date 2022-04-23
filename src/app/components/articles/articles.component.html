@@ -1,14 +1,11 @@
-<!-- <app-update-article
-  (onUpdateArticle)="updateArticle($event)"
-></app-update-article> -->
-<div class="page" *ngIf="status">
+<div class="page" *ngIf="status == 'success'">
   <header><h1>Mes articles</h1></header>
-  <section>
+  <section *ngIf="articles.length > 0">
     <app-article-item *ngFor="let article of articles" [article]="article">
     </app-article-item>
   </section>
 
-  <div class="footer">
+  <div class="footer" *ngIf="articles.length > 0">
     <div class="previous">
       <button
         *ngIf="previous != 0"
@@ -23,6 +20,10 @@
     </div>
   </div>
 </div>
-<div class="error" *ngIf="!status">
+<h2 *ngIf="articles.length == 0" class="page info">
+  Vous n'avez aucun article pour le moment
+</h2>
+
+<div class="error" *ngIf="status == 'error'">
   {{ error }}
 </div>
