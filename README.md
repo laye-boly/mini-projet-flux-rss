@@ -21,6 +21,7 @@ Ensuite se rendre à `http://localhost:8000/loadDatabase.php`. Ainsi les article
 # Le Frontend
 
 J'ai utlisé Angular pour le frontend
+Après avoir cloné le projet, il faut installer les dépendances `npm install`
 Pour démarrer le client angular, il fautt se placer à la racine du projet et lancer la commande `ng serve` et se rendre à `http://localhost:4200/`. La page d'accueil affiche les 5 derniers articles
 
 Pour afficher les 5 articles qui suivent, il faut appuyer sur le button `Suivant` et pour revenir sur les 5 précédents, appuyer sur le button `Précédent`
